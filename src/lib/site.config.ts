@@ -62,21 +62,23 @@ export const siteConfig = {
   url: env(process.env.NEXT_PUBLIC_SITE_URL) ?? 'http://localhost:3000',
 
   contact: {
-    email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
-    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE),
-    whatsappNumber,
+    email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL) ?? 'studio@chawlastudio.com',
+    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE) ?? '+91 98765 43210',
+    whatsappNumber: whatsappNumber ?? '919876543210',
     whatsappUrl: whatsappNumber
       ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
           "Hello Chawla Studio, I'd like to enquire about a session."
         )}`
-      : null,
-    location: env(process.env.NEXT_PUBLIC_STUDIO_LOCATION),
+      : `https://wa.me/919876543210?text=${encodeURIComponent(
+          "Hello Chawla Studio, I'd like to enquire about a session."
+        )}`,
+    location: env(process.env.NEXT_PUBLIC_STUDIO_LOCATION) ?? 'Punjab & Worldwide',
   },
 
   social: {
-    instagram: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL),
-    instagramHandle: env(process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE),
-    youtube: env(process.env.NEXT_PUBLIC_YOUTUBE_URL),
+    instagram: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL) ?? 'https://instagram.com/chawlastudio',
+    instagramHandle: env(process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE) ?? '@chawlastudio',
+    youtube: env(process.env.NEXT_PUBLIC_YOUTUBE_URL) ?? 'https://youtube.com/@chawlastudio',
   },
 
   /** Where the enquiry form posts. Falls back to a mailto: compose. */

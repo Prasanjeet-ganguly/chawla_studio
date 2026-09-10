@@ -4,7 +4,7 @@
     {
       "name": "chawla-studio-html",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", ".", "-l", "3000", "-s"],
+      "runtimeArgs": ["serve", "out", "-l", "3000", "-s"],
       "port": 3000
     },
     {

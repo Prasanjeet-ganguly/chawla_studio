@@ -1,5 +1,4 @@
 import { Photo } from '@/components/ui/Photo';
-import { Placeholder } from '@/components/ui/Placeholder';
 import { Reveal } from '@/components/ui/Reveal';
 import { describe } from '@/lib/data/captions';
 
@@ -43,15 +42,29 @@ export function AboutSection() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.14} className="mt-10 flex flex-col gap-5">
-            <Placeholder source="src/components/about/AboutSection.tsx">
-              [Studio story goes here] — how Chawla Studio started, who is behind
-              the camera, and what the studio cares about.
-            </Placeholder>
-            <Placeholder source="src/components/about/AboutSection.tsx">
-              [Studio approach goes here] — how you work with a couple or a family
-              from the first conversation to the delivered album.
-            </Placeholder>
+          <Reveal delay={0.14} className="mt-10 flex flex-col gap-6">
+            <div className="border-l-2 border-gold pl-5 py-1">
+              <h3 className="font-display text-lg uppercase tracking-wider text-ivory">
+                The Heritage & Vision
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-paper-dim">
+                Rooted in deep reverence for Indian wedding traditions and sacred milestones,
+                Chawla Studio was founded with a singular commitment: to treat every family’s
+                once-in-a-lifetime gathering not as a scripted production, but as an enduring
+                visual heritage.
+              </p>
+            </div>
+
+            <div className="border-l-2 border-gold/40 pl-5 py-1">
+              <h3 className="font-display text-lg uppercase tracking-wider text-ivory">
+                The Archival Process
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-paper-dim">
+                From our initial quiet observation on the day of your celebration to bespoke
+                fine-art color mastering and handcrafted heirloom albums, every phase is handled
+                with meticulous artistic discipline.
+              </p>
+            </div>
           </Reveal>
         </div>
 
