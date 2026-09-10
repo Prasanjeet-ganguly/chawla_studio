@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chawla Studio — Photography & Cinematography</title>
+  <meta name="description" content="Chawla Studio is a wedding photography and cinematography studio. Real moments, captured in the light that is already in the room.">
+
+  <!-- Preloads & Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chawla Studio — Photography & Cinematography">
+  <meta property="og:description" content="Chawla Studio is a wedding photography and cinematography studio. Real moments, captured in the light that is already in the room.">
+  <meta property="og:image" content="/photos/0f5a6488-1200.jpg">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <!-- Cinematic Loader -->
+  <div id="loader" class="cinematic-loader">
+    <div class="loader-curtain">
+      <div class="loader-background">
+        <img src="/images/loading/chatgpt-image-aug-30-2026-01-59-24-pm-1280.jpg" alt="Chawla Studio" loading="eager">
+      </div>
+
+      <div class="loader-content">
+        <div class="loader-brand">
+          <p class="brand-lines">
+            <span>Chawla</span>
+            <span>Studio</span>
+          </p>
+        </div>
+
+        <div class="loader-main">
+          <h1 class="loader-title">
+            <span>Capturing</span>
+            <span>Moments</span>
+            <span>That</span>
+            <span>Last</span>
+            <span>Forever</span>
+          </h1>
+
+          <p class="loader-subtitle">Photography</p>
+
+          <div class="loader-tagline">
+            <span class="tagline-word">We don't just take pictures</span>
+            <span class="tagline-word highlight">Memories</span>
+            <span class="tagline-word">for a lifetime</span>
+          </div>
+        </div>
+
+        <div class="loader-progress">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="progress-text">Loading Beautiful Moments...</p>
+        </div>
+
+        <div class="loader-quote">
+          <p class="quote-first">" Not just pictures</p>
+          <p class="quote-highlight">Memories</p>
+          <p class="quote-last">for a lifetime "</p>
+        </div>
+
+        <div class="loader-stats">
+          <div class="loader-stat">
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="loader-stat">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">Happy Couples</span>
+          </div>
+          <div class="loader-stat">
+            <span class="stat-value">1000+</span>
+            <span class="stat-label">Weddings Captured</span>
+          </div>
+          <div class="loader-stat">
+            <span class="stat-value">4.9 ★</span>
+            <span class="stat-label">Client Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="loader-motes">
+        <div class="mote" style="--delay: 0s">📸</div>
+        <div class="mote" style="--delay: 0.5s">💕</div>
+        <div class="mote" style="--delay: 1s">✨</div>
+        <div class="mote" style="--delay: 1.5s">🎬</div>
+        <div class="mote" style="--delay: 2s">🌸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application -->
+  <div id="app" class="hidden">
+    <!-- Header -->
+    <header class="header" id="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-header);">
+      <div class="shell header-inner">
+        <div class="wordmark">
+          <a href="#hero" class="wordmark-link">
+            <span class="wordmark-chawla">Chawla</span>
+            <span class="wordmark-studio">Studio</span>
+          </a>
+        </div>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+            <li><a href="#work" class="nav-link" data-section="work">Portfolio</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="#contact" class="btn btn-gilt">
+            <span>Book a shoot</span>
+          </a>
+
+          <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-label="Open menu">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-underline">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" hidden aria-hidden="true">
+      <div class="mobile-menu-backdrop"></div>
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <div class="wordmark">
+            <span class="wordmark-chawla">Chawla</span>
+            <span class="wordmark-studio">Studio</span>
+          </div>
+          <button type="button" class="mobile-menu-close" aria-label="Close menu">
+            <span class="close-line"></span>
+            <span class="close-line"></span>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Mobile">
+          <ul class="mobile-nav-list">
+            <li><a href="#hero" class="mobile-nav-link" data-section="hero">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link" data-section="about">About</a></li>
+            <li><a href="#services" class="mobile-nav-link" data-section="services">Services</a></li>
+            <li><a href="#work" class="mobile-nav-link" data-section="work">Portfolio</a></li>
+            <li><a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu-footer">
+          <a href="#contact" class="btn btn-solid full-width">
+            <span>Get in touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="section hero-section" data-section="hero">
+        <div class="hero-backdrop" id="hero-backdrop">
+          <img src="/photos/0f5a6488-1200.jpg" alt="Wedding celebration by Chawla Studio" class="hero-image">
+        </div>
+
+        <div class="shell" style="position: relative; z-index: 1; width: 100%;">
+          <div class="hero-content visible" style="max-width: 680px;">
+            <p class="eyebrow">Capturing real moments</p>
+            <h1 class="hero-title">
+              <span>We capture</span><br>
+              <span>Moments that</span><br>
+              <span class="hero-script">last forever</span>
+            </h1>
+
+            <p class="hero-description">
+              <span>From the vows to the forever,</span>
+              <span>we capture your story beautifully.</span>
+            </p>
+
+            <div class="hero-actions">
+              <a href="#work" class="btn btn-solid">Explore our work</a>
+              <button type="button" class="btn btn-outline" id="showreel-btn">
+                <span>Showreel ▶</span>
+              </button>
+            </div>
+
+            <!-- Hero Stats Cards -->
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-content">
+                  <span class="stat-value">10+</span>
+                  <span class="stat-label">Years experience</span>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-content">
+                  <span class="stat-value">500+</span>
+                  <span class="stat-label">Happy clients</span>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-content">
+                  <span class="stat-value">1000+</span>
+                  <span class="stat-label">Weddings captured</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section services-section reveal" data-section="services">
+        <div class="shell">
+          <div class="section-header">
+            <p class="eyebrow">What we do</p>
+            <h2 class="section-title">Services</h2>
+          </div>
+
+          <ul class="services-list">
+            <li class="service-item">
+              <div class="service-content">
+                <p class="service-number">01</p>
+                <div class="service-info">
+                  <h3 class="service-title">Wedding Stories</h3>
+                  <p class="service-description">Full-day coverage, told as one continuous story. Sacred ceremonies, emotional tears, and joyful celebrations.</p>
+                </div>
+              </div>
+              <div class="service-image">
+                <img src="/photos/0f5a9991-1200.jpg" alt="Wedding Stories" loading="lazy">
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-content">
+                <p class="service-number">02</p>
+                <div class="service-info">
+                  <h3 class="service-title">Pre-Wedding</h3>
+                  <p class="service-description">Relaxed, cinematic sessions before the celebration. Intimate portraits in quiet, scenic settings.</p>
+                </div>
+              </div>
+              <div class="service-image">
+                <img src="/photos/0f5a4587-1200.jpg" alt="Pre-Wedding" loading="lazy">
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-content">
+                <p class="service-number">03</p>
+                <div class="service-info">
+                  <h3 class="service-title">Portraits</h3>
+                  <p class="service-description">Honest portraits with intentional light. Individual, couple, and family heirlooms.</p>
+                </div>
+              </div>
+              <div class="service-image">
+                <img src="/photos/0f5a6329-1200.jpg" alt="Portraits" loading="lazy">
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-content">
+                <p class="service-number">04</p>
+                <div class="service-info">
+                  <h3 class="service-title">Events</h3>
+                  <p class="service-description">Celebrations, ring ceremonies, haldi, mehendi, and family gatherings documented unobtrusively.</p>
+                </div>
+              </div>
+              <div class="service-image">
+                <img src="/photos/0f5a6488-1200.jpg" alt="Events" loading="lazy">
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-content">
+                <p class="service-number">05</p>
+                <div class="service-info">
+                  <h3 class="service-title">Cinematic Films</h3>
+                  <p class="service-description">Films that feel like memory, not documentation. 4K visuals, pristine audio, and timeless color grading.</p>
+                </div>
+              </div>
+              <div class="service-image">
+                <img src="/photos/0f5a9678-1200.jpg" alt="Cinematic Films" loading="lazy">
+              </div>
+            </li>
+          </ul>
+
+          <div class="services-closing">
+            <p class="closing-text">Let's create something unforgettable.</p>
+            <a href="#contact" class="btn btn-solid">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work / Portfolio Section -->
+      <section id="work" class="section work-section reveal" data-section="work">
+        <div class="shell">
+          <div class="section-header">
+            <p class="eyebrow">The work</p>
+            <h2 class="section-title">Selected Stories</h2>
+          </div>
+
+          <div class="gallery-filters">
+            <div class="filter-group">
+              <button type="button" class="filter-tab active" data-group="photography">Photography</button>
+              <button type="button" class="filter-tab" data-group="video">Videos</button>
+            </div>
+
+            <div class="category-filters">
+              <button type="button" class="category-tab active" data-category="all">All</button>
+              <button type="button" class="category-tab" data-category="Wedding">Wedding</button>
+              <button type="button" class="category-tab" data-category="Ring Ceremony">Ring Ceremony</button>
+              <button type="button" class="category-tab" data-category="Teaser">Teaser</button>
+              <button type="button" class="category-tab" data-category="Trailer">Trailer</button>
+              <button type="button" class="category-tab" data-category="Highlights">Highlights</button>
+            </div>
+          </div>
+
+          <div class="gallery-count">
+            <p class="count-text" id="gallery-count">39 frames</p>
+          </div>
+
+          <!-- Dynamic Photography Gallery Grid (filled by app.js) -->
+          <ul id="photography-gallery" class="gallery-grid photography-grid" style="list-style: none; padding: 0;"></ul>
+
+          <!-- Dynamic Video Gallery Grid (filled by app.js) -->
+          <ul id="video-gallery" class="gallery-grid video-grid" style="display: none; list-style: none; padding: 0;"></ul>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section about-section reveal" data-section="about">
+        <div class="shell">
+          <p class="rebate-mark">About the studio</p>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p class="eyebrow">Philosophy</p>
+              <h2 class="section-title">We capture what you'll want to remember.</h2>
+
+              <div class="about-paragraphs">
+                <p>We work quietly and in the light that is already in the room. A celebration does not need to be directed to be photographed well; it needs someone watching closely enough to see the half-second that matters, and composing carefully enough that the picture still holds up years after the day has gone soft in everyone's memory.</p>
+
+                <p>Every frame on this site comes from real work — a ring ceremony, a mandap, a bride waiting to be called in. Nothing here is stock or staged.</p>
+              </div>
+
+              <div class="about-placeholders">
+                <div class="placeholder-block">
+                  <h3>10+ Years of Craft</h3>
+                  <p>Over a decade refining the balance of documentary observation and fine-art composition.</p>
+                </div>
+
+                <div class="placeholder-block">
+                  <h3>True-to-Life Color</h3>
+                  <p>No trendy filters. Our darkroom-inspired color pipeline preserves skin tones and rich ambient tones forever.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-gallery">
+              <div class="about-image primary">
+                <img src="/photos/0f5a6366-1200.jpg" alt="Bride preparing for ceremony" loading="lazy">
+              </div>
+
+              <div class="about-image secondary">
+                <img src="/photos/0f5a9856-1200.jpg" alt="Intimate celebration moment" loading="lazy">
+              </div>
+
+              <p class="about-caption">Selects from real client commissions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section contact-section reveal" data-section="contact">
+        <div class="shell">
+          <p class="rebate-mark">Reach out</p>
+
+          <div class="contact-content">
+            <div class="contact-form-wrapper">
+              <p class="eyebrow">Enquiries</p>
+              <h2 class="section-title">Let's create something timeless.</h2>
+
+              <form class="enquiry-form" id="enquiry-form">
+                <div class="form-row">
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-name" class="form-label">Name *</label>
+                    <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Your full name">
+                  </div>
+
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-email" class="form-label">Email *</label>
+                    <input type="email" id="contact-email" name="email" class="form-control" required placeholder="you@example.com">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-phone" class="form-label">Phone (optional)</label>
+                    <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="+91 ...">
+                  </div>
+
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-event-type" class="form-label">Event type</label>
+                    <select id="contact-event-type" name="eventType" class="form-control">
+                      <option value="Wedding">Wedding</option>
+                      <option value="Pre-Wedding">Pre-Wedding</option>
+                      <option value="Haldi">Haldi</option>
+                      <option value="Mehendi">Mehendi</option>
+                      <option value="Ring Ceremony">Ring Ceremony</option>
+                      <option value="Portraits">Portraits</option>
+                      <option value="Events">Events</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-event-date" class="form-label">Event date (optional)</label>
+                    <input type="date" id="contact-event-date" name="eventDate" class="form-control">
+                  </div>
+
+                  <div class="form-group" style="flex: 1;">
+                    <label for="contact-location" class="form-label">Location (optional)</label>
+                    <input type="text" id="contact-location" name="location" class="form-control" placeholder="City or venue">
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="contact-message" class="form-label">Tell us about your celebration *</label>
+                  <textarea id="contact-message" name="message" class="form-control" rows="5" required placeholder="Dates, vision, approximate guest count, or anything else you'd like us to know..."></textarea>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit" class="btn btn-solid">
+                    <span>Send enquiry</span>
+                  </button>
+
+                  <div class="form-status" id="form-status"></div>
+                </div>
+              </form>
+            </div>
+
+            <div class="contact-info">
+              <p class="eyebrow">Or reach us directly</p>
+
+              <div class="contact-channels" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="contact-channel">
+                  <div class="channel-details">
+                    <span class="channel-label">Email</span>
+                    <a href="mailto:info@chawlastudio.com" class="channel-value">info@chawlastudio.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-channel">
+                  <div class="channel-details">
+                    <span class="channel-label">Instagram</span>
+                    <a href="https://instagram.com/chawlastudio" target="_blank" rel="noopener noreferrer" class="channel-value">@chawlastudio</a>
+                  </div>
+                </div>
+
+                <div class="contact-channel">
+                  <div class="channel-details">
+                    <span class="channel-label">WhatsApp</span>
+                    <a href="https://wa.me/919812345678" target="_blank" rel="noopener noreferrer" class="channel-value">+91 98123 45678</a>
+                  </div>
+                </div>
+
+                <div class="contact-channel">
+                  <div class="channel-details">
+                    <span class="channel-label">Location</span>
+                    <span class="channel-value">New Delhi / NCR & Worldwide</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="shell footer-content" style="padding-top: 3rem; padding-bottom: 2rem;">
+        <div class="footer-brand">
+          <p class="brand-name">Chawla Studio</p>
+          <p class="brand-discipline">Photography & Films</p>
+          <p class="brand-tagline">Stories, Framed Forever.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer">
+          <h2 class="nav-title">Index</h2>
+          <ul class="nav-list">
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#work" class="nav-link">Portfolio</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-contact">
+          <h2 class="nav-title">Reach us</h2>
+          <ul class="contact-list">
+            <li><a href="mailto:info@chawlastudio.com" class="contact-link">info@chawlastudio.com</a></li>
+            <li><a href="https://instagram.com/chawlastudio" target="_blank" rel="noopener noreferrer" class="contact-link">@chawlastudio</a></li>
+            <li><a href="https://wa.me/919812345678" target="_blank" rel="noopener noreferrer" class="contact-link">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="shell footer-bottom">
+        <p>© 2026 Chawla Studio. All rights reserved.</p>
+        <p>Made to be remembered.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>

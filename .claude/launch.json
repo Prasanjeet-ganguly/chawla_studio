@@ -2,17 +2,16 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "chawla-studio-html",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "-l", "3000", "-s"],
+      "port": 3000
+    },
+    {
       "name": "chawla-studio",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
-      "autoPort": true
-    },
-    {
-      "name": "chawla-studio-export",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4321", "-d", "out"],
-      "port": 4321,
       "autoPort": true
     }
   ]
