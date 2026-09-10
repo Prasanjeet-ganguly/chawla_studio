@@ -145,10 +145,7 @@ function makePhotoEl(id, sizes, slot, index) {
         <span class="frame-number">${pad2(index)}</span>
         <span class="view-text">View Frame &rarr;</span>
       </span>
-      <div class="image-wrap" style="
-        background-image: url('${photo.blurDataURL}');
-        background-size: cover;
-      ">
+      <div class="image-wrap" style="background-color: var(--color-ink-deep, #141414);">
         <picture>
           <source type="image/webp" srcset="${photo.srcSet}" sizes="${sizes}">
           <img src="${photo.src}" alt="${alt}" loading="lazy" class="gallery-photo" width="${photo.width}" height="${photo.height}">
@@ -537,7 +534,7 @@ function updateLightbox() {
     img.alt = describe(id);
     img.width = photo.width;
     img.height = photo.height;
-    img.style.backgroundImage = `url(${photo.blurDataURL})`;
+    img.style.backgroundColor = 'var(--color-ink-deep, #141414)';
 
     // EXIF
     const { capture } = photo;
