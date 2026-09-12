@@ -1,3 +1,9 @@
+# archives & zips
+*.rar
+*.zip
+*.tar.gz
+*.7z
+
 # dependencies
 /node_modules
 /.pnp
