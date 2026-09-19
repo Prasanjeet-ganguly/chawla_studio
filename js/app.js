@@ -714,6 +714,11 @@ function initShowreelModal() {
 let revealObserver = null;
 
 function observeReveal(elements) {
+  if (!elements || !elements.length) return;
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((el) => el.classList.add('visible'));
+    return;
+  }
   if (!revealObserver) {
     revealObserver = new IntersectionObserver(
       (entries) => {
@@ -724,10 +729,18 @@ function observeReveal(elements) {
           }
         });
       },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }
+      { rootMargin: '120px 0px 80px 0px', threshold: 0 }
     );
   }
-  elements.forEach((el) => revealObserver.observe(el));
+  elements.forEach((el) => {
+    // If element is already above the viewport or inside it, make visible immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
+      el.classList.add('visible');
+    } else {
+      revealObserver.observe(el);
+    }
+  });
 }
 
 // ─── Enquiry Form ─────────────────────────────────────────────────────────────
