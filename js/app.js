@@ -103,10 +103,10 @@ const PHOTO_CATEGORIES = {
 };
 
 const VIDEOS = [
-  { id: 'teaser-1', slug: 'cinematic-wedding-teaser', title: 'Teaser 1', category: 'Teaser', description: 'A cinematic glimpse into the celebration, weaving together key moments and emotional highlights.', videoUrl: 'https://www.youtube.com/embed/1etOrEXAWkA?rel=0', duration: '6:38', thumbnail: 'photos/0f5a9991-800.jpg' },
-  { id: 'trailer-1', slug: 'cinematic-wedding-trailer', title: 'Trailer 1', category: 'Trailer', description: 'An emotional wedding film trailer capturing the joy, rituals, and unforgettable celebrations.', videoUrl: 'https://www.youtube.com/embed/U0I1RKO-6Ho?rel=0', duration: '7:03', thumbnail: 'photos/0f5a9678-800.jpg' },
-  { id: 'highlight-1', slug: 'cinematic-wedding-highlights', title: 'Highlights 1', category: 'Highlights', description: 'A curated highlight reel capturing the emotion, grandeur, and unforgettable celebrations.', videoUrl: 'https://www.youtube.com/embed/Cb2fObhWWyQ?rel=0', duration: '3:45', thumbnail: 'photos/0f5a9959-800.jpg' },
-  { id: 'highlight-2', slug: 'cinematic-wedding-highlights-2', title: 'Highlights 2', category: 'Highlights', description: 'A vivid wedding highlights film weaving together sacred ceremonies, celebration, and heartfelt memories.', videoUrl: 'https://www.youtube.com/embed/XCMc5XBaqFA?rel=0', duration: '4:12', thumbnail: 'photos/0f5a9962-800.jpg' },
+  { id: 'teaser-1', slug: 'cinematic-wedding-teaser', title: 'Teaser 1', category: 'Teaser', description: 'A cinematic glimpse into the celebration, weaving together key moments and emotional highlights.', videoUrl: 'https://www.youtube.com/embed/1etOrEXAWkA?rel=0', duration: '6:38', thumbnail: 'photos/0f5a9991-1200.jpg' },
+  { id: 'trailer-1', slug: 'cinematic-wedding-trailer', title: 'Trailer 1', category: 'Trailer', description: 'An emotional wedding film trailer capturing the joy, rituals, and unforgettable celebrations.', videoUrl: 'https://www.youtube.com/embed/U0I1RKO-6Ho?rel=0', duration: '7:03', thumbnail: 'photos/0f5a9678-1200.jpg' },
+  { id: 'highlight-1', slug: 'cinematic-wedding-highlights', title: 'Highlights 1', category: 'Highlights', description: 'A curated highlight reel capturing the emotion, grandeur, and unforgettable celebrations.', videoUrl: 'https://www.youtube.com/embed/Cb2fObhWWyQ?rel=0', duration: '3:45', thumbnail: 'photos/0f5a9959-1200.jpg' },
+  { id: 'highlight-2', slug: 'cinematic-wedding-highlights-2', title: 'Highlights 2', category: 'Highlights', description: 'A vivid wedding highlights film weaving together sacred ceremonies, celebration, and heartfelt memories.', videoUrl: 'https://www.youtube.com/embed/XCMc5XBaqFA?rel=0', duration: '4:12', thumbnail: 'photos/0f5a9962-1200.jpg' },
 ];
 
 // ─── App State ────────────────────────────────────────────────────────────────
