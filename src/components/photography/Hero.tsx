@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, X } from 'lucide-react';
@@ -8,6 +8,7 @@ import { FloatingPhoto } from './FloatingPhoto';
 import { HeroStats } from './HeroStats';
 import { HeroDecorations } from './HeroDecorations';
 import { studioAssets } from './studioData';
+import { isIntroFinished, onIntroFinish } from '@/lib/loading-state';
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 
@@ -18,7 +19,7 @@ const textContainer = {
   show: {
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.25,
+      delayChildren: 0.15,
     },
   },
 };
@@ -37,7 +38,7 @@ const imageReveal = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1.1, ease: EASE_OUT, delay: 0.3 },
+    transition: { duration: 1.1, ease: EASE_OUT, delay: 0.2 },
   },
 };
 
@@ -51,7 +52,7 @@ const floatingPhotos = [
     ...studioAssets.floatingPhotos.wedding,
     rotation: -8,
     className: 'top-[-4%] right-[34%] w-[130px] md:w-[160px]',
-    delay: 0.6,
+    delay: 0.4,
     initial: { opacity: 0, y: -30, x: -10 },
     animate: { opacity: 1, y: 0, x: 0 },
   },
@@ -60,7 +61,7 @@ const floatingPhotos = [
     ...studioAssets.floatingPhotos.newborn,
     rotation: 7,
     className: 'top-[2%] right-[6%] w-[120px] md:w-[150px]',
-    delay: 0.75,
+    delay: 0.55,
     initial: { opacity: 0, y: -20, x: 20 },
     animate: { opacity: 1, y: 0, x: 0 },
   },
@@ -69,7 +70,7 @@ const floatingPhotos = [
     ...studioAssets.floatingPhotos.maternity,
     rotation: -5,
     className: 'bottom-[20%] right-[52%] w-[110px] md:w-[140px]',
-    delay: 0.85,
+    delay: 0.65,
     initial: { opacity: 0, y: 30, x: -10 },
     animate: { opacity: 1, y: 0, x: 0 },
   },
@@ -78,7 +79,7 @@ const floatingPhotos = [
     ...studioAssets.floatingPhotos.preWedding,
     rotation: 9,
     className: 'bottom-[10%] right-[4%] w-[125px] md:w-[155px]',
-    delay: 0.95,
+    delay: 0.75,
     initial: { opacity: 0, y: 30, x: 30 },
     animate: { opacity: 1, y: 0, x: 0 },
   },
@@ -88,16 +89,30 @@ const floatingPhotos = [
 
 export function StudioHero() {
   const [showReel, setShowReel] = useState(false);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    if (isIntroFinished()) {
+      setShown(true);
+      return;
+    }
+    const stop = onIntroFinish(() => setShown(true));
+    const safety = window.setTimeout(() => setShown(true), 2600);
+    return () => {
+      stop();
+      window.clearTimeout(safety);
+    };
+  }, []);
 
   return (
     <>
       {/* ── Hero Section ─────────────────────────────────────────────────────── */}
       <section
-        id="home"
+        id="hero"
         className="relative w-full min-h-screen flex flex-col overflow-hidden"
         style={{
           background: '#FAF8F4',
-          paddingTop: '6rem', // clear the fixed header
+          paddingTop: '6.5rem', // clear the fixed header
         }}
         aria-label="Hero section"
       >
@@ -111,7 +126,7 @@ export function StudioHero() {
           <motion.div
             variants={textContainer}
             initial="hidden"
-            animate="show"
+            animate={shown ? 'show' : 'hidden'}
             className="flex flex-col items-start justify-center order-2 lg:order-1 pt-6 lg:pt-0"
           >
             {/* Eyebrow */}
@@ -180,7 +195,7 @@ export function StudioHero() {
             >
               {/* Primary CTA */}
               <a
-                href="#portfolio"
+                href="#featured-work"
                 className="group inline-flex items-center gap-3 pl-7 pr-2 py-2 rounded-full bg-[#D99A35] hover:bg-[#E9B45C] text-[#111111] font-semibold text-sm tracking-wide shadow-[0_4px_20px_rgba(217,154,53,0.30)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(217,154,53,0.38)] hover:scale-[1.02]"
                 style={{ fontFamily: 'var(--font-dm-sans, sans-serif)' }}
               >
@@ -211,7 +226,7 @@ export function StudioHero() {
             <motion.div
               variants={imageReveal}
               initial="hidden"
-              animate="show"
+              animate={shown ? 'show' : 'hidden'}
               className="relative z-10"
             >
               {/* Gold outer ring */}
@@ -258,7 +273,7 @@ export function StudioHero() {
                 className={photo.className}
                 animationProps={{
                   initial: photo.initial,
-                  animate: photo.animate,
+                  animate: shown ? photo.animate : photo.initial,
                 }}
                 floatDelay={photo.delay}
               />

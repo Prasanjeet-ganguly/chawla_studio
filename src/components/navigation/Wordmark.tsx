@@ -7,24 +7,40 @@ type WordmarkProps = {
   as?: 'link' | 'text';
   onClick?: () => void;
   className?: string;
+  settled?: boolean;
 };
 
 /**
- * The studio's mark: the name set in the script face, the discipline in small
+ * The studio's mark: the name set in Cormorant / Great Vibes, the discipline in small
  * tracked capitals beneath it.
- *
- * Two words of type rather than a graphic, which is what a photography studio's
- * masthead should be — it stays sharp at any size, it is selectable and
- * searchable, and it needs no asset. It lives in one file because the masthead
- * and the drawer must never drift apart.
  */
-export function Wordmark({ as = 'link', onClick, className }: WordmarkProps) {
+export function Wordmark({ as = 'link', onClick, className, settled = false }: WordmarkProps) {
   const lockup = (
     <>
-      <span className="font-script text-[1.7rem] leading-[0.95] whitespace-nowrap text-ivory transition-colors duration-500 ease-[var(--ease-out-expo)] group-hover:text-gold md:text-[1.9rem]">
-        {siteConfig.brandName}
-      </span>
-      <span className="mt-1 text-[0.5rem] leading-none tracking-[0.3em] whitespace-nowrap text-gold/85 uppercase md:text-[0.55rem]">
+      <div className="flex items-baseline gap-1.5 leading-none">
+        <span
+          className={cx(
+            'font-light tracking-tight transition-colors duration-500 text-[1.45rem] md:text-[1.65rem]',
+            settled ? 'text-ivory' : 'text-[#111111]'
+          )}
+          style={{ fontFamily: 'var(--font-cormorant, "Cormorant Garamond", serif)' }}
+        >
+          Chawla
+        </span>
+        <span
+          className="text-[#D99A35] text-[1.65rem] md:text-[1.85rem] leading-none"
+          style={{ fontFamily: 'var(--font-great-vibes, "Great Vibes", cursive)' }}
+        >
+          Studio
+        </span>
+      </div>
+      <span
+        className={cx(
+          'mt-1 text-[0.48rem] md:text-[0.52rem] leading-none tracking-[0.26em] uppercase transition-colors duration-500',
+          settled ? 'text-gold/85' : 'text-[#78716c]'
+        )}
+        style={{ fontFamily: 'var(--font-dm-sans, sans-serif)' }}
+      >
         {siteConfig.discipline}
       </span>
     </>
@@ -37,9 +53,6 @@ export function Wordmark({ as = 'link', onClick, className }: WordmarkProps) {
   }
 
   return (
-    // The lockup's own two lines come to about 38px, so the link states a 44px
-    // minimum and centres them inside it: on a phone masthead this is one of
-    // only two controls, and it should take a thumb like one.
     <Link
       href="/"
       onClick={onClick}

@@ -63,7 +63,7 @@ export function Header() {
           pill hanging off the right edge.
         */}
         <div className="shell flex items-center justify-between gap-6 py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-5 lg:py-5">
-          <Wordmark className="lg:justify-self-start" />
+          <Wordmark className="lg:justify-self-start" settled={settled} />
 
           <nav aria-label="Primary" className="hidden lg:block">
             {/*
@@ -83,9 +83,14 @@ export function Header() {
                       data-active={isActive}
                       aria-current={isActive ? 'true' : undefined}
                       className={cx(
-                        'link-underline text-label tracked transition-colors duration-500',
-                        isActive ? 'text-gold' : 'text-ivory/70 hover:text-ivory'
+                        'link-underline text-label tracked transition-colors duration-500 font-medium',
+                        isActive
+                          ? 'text-gold'
+                          : settled
+                            ? 'text-ivory/70 hover:text-ivory'
+                            : 'text-[#44403c] hover:text-[#111111]'
                       )}
+                      style={{ fontFamily: 'var(--font-dm-sans, sans-serif)' }}
                     >
                       {link.label}
                     </Link>
@@ -96,9 +101,9 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex lg:justify-end">
-            <Button href="/#contact" variant="gilt" size="compact">
-              <span className="inline-flex items-center gap-2.5">
-                <span className="h-[0.95rem] w-[0.95rem] shrink-0 text-gold">
+            <Button href="/#contact" variant={settled ? 'gilt' : 'gold'} size="compact">
+              <span className="inline-flex items-center gap-2.5 font-medium">
+                <span className="h-[0.95rem] w-[0.95rem] shrink-0 text-current">
                   <CalendarIcon />
                 </span>
                 Book a shoot
@@ -114,7 +119,10 @@ export function Header() {
             // The only control on a phone masthead, so it carries a full 44px
             // touch target: the label's own line box is about 16px, and stating
             // the minimum height keeps the box honest if the type changes.
-            className="-mr-2 inline-flex min-h-11 items-center px-2 text-label tracked text-ivory transition-colors duration-500 hover:text-gold lg:hidden"
+            className={cx(
+              '-mr-2 inline-flex min-h-11 items-center px-2 text-label tracked transition-colors duration-500 hover:text-gold lg:hidden font-medium',
+              settled ? 'text-ivory' : 'text-[#111111]'
+            )}
           >
             Menu
           </button>
