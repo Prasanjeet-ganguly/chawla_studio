@@ -84,7 +84,7 @@ export function MobileMenu({ open, onClose, active }: MobileMenuProps) {
       className="fixed inset-0 z-[70] flex flex-col bg-ink lg:hidden"
     >
       <div className="flex items-center justify-between border-b border-hairline px-gutter py-5 pt-[calc(1.25rem+env(safe-area-inset-top,0px))]">
-        <Wordmark onClick={onClose} />
+        <Wordmark onClick={onClose} settled={true} />
         <button
           type="button"
           onClick={onClose}
