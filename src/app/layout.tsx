@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { Allura, Archivo, IBM_Plex_Mono, Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from 'next/font/google';
 import './globals.css';
+import { Footer } from '@/components/footer/Footer';
+import { CinematicLoader } from '@/components/loader/CinematicLoader';
+import { SmoothScroll } from '@/components/motion/SmoothScroll';
+import { Header } from '@/components/navigation/Header';
+import { Grain } from '@/components/ui/Grain';
+import { SkipLink } from '@/components/ui/SkipLink';
 import { siteConfig } from '@/lib/site.config';
 
 const playfair = Playfair_Display({
@@ -81,7 +87,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#FAF8F4',
+  themeColor: '#08080a',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -91,7 +97,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${playfair.variable} ${allura.variable} ${archivo.variable} ${plexMono.variable} ${cormorant.variable} ${dmSans.variable} ${greatVibes.variable}`}
     >
       <body style={{ margin: 0 }}>
+        <CinematicLoader />
+        <Header />
         {children}
+        <Footer />
+        <Grain />
+        <SkipLink />
+        <SmoothScroll />
       </body>
     </html>
   );
