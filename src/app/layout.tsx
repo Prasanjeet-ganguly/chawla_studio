@@ -1,21 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import { Allura, Archivo, IBM_Plex_Mono, Playfair_Display } from 'next/font/google';
+import { Allura, Archivo, IBM_Plex_Mono, Playfair_Display, Cormorant_Garamond, DM_Sans, Great_Vibes } from 'next/font/google';
 import './globals.css';
-import { Footer } from '@/components/footer/Footer';
-import { Header } from '@/components/navigation/Header';
-import { CinematicLoader } from '@/components/loader/CinematicLoader';
-import { Grain } from '@/components/ui/Grain';
-import { SkipLink } from '@/components/ui/SkipLink';
-import { SmoothScroll } from '@/components/motion/SmoothScroll';
 import { siteConfig } from '@/lib/site.config';
 
-/*
-  Four faces, loaded as variables and nothing more: an editorial serif for
-  display, a grotesque for reading, a technical mono for capture data, and one
-  calligraphic script reserved for the hero's accent line and the closing brand
-  statement. Only the weights and styles the site actually sets are requested —
-  an unused italic is still a preloaded font file the visitor pays for.
-*/
 const playfair = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
@@ -44,6 +31,28 @@ const plexMono = IBM_Plex_Mono({
   weight: ['400'],
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cormorant',
+  weight: ['300', '400', '600', '700'],
+  style: ['normal', 'italic'],
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '600'],
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-great-vibes',
+  weight: ['400'],
+});
+
 const title = `${siteConfig.brandName} — ${siteConfig.tagline}`;
 
 export const metadata: Metadata = {
@@ -61,9 +70,6 @@ export const metadata: Metadata = {
     title,
     description: siteConfig.shortDescription,
     url: siteConfig.url,
-    // The card itself comes from app/opengraph-image.tsx, which Next wires in
-    // with the right dimensions and alt text — repeating it here would only give
-    // it a chance to drift.
   },
   twitter: {
     card: 'summary_large_image',
@@ -75,55 +81,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#08080a',
-  colorScheme: 'dark',
+  themeColor: '#FAF8F4',
 };
-
-/**
- * Structured data for the studio.
- *
- * Only fields the studio has actually supplied are emitted — no invented
- * address, rating, founding date or price range. An unconfigured deployment
- * publishes just a name, a URL and a description, which is true.
- */
-function organisationJsonLd() {
-  const { contact, social } = siteConfig;
-  const sameAs = [social.instagram, social.youtube].filter((url): url is string => url !== null);
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.brandName,
-    url: siteConfig.url,
-    description: siteConfig.shortDescription,
-    ...(contact.email ? { email: contact.email } : {}),
-    ...(contact.phone ? { telephone: contact.phone } : {}),
-    ...(sameAs.length > 0 ? { sameAs } : {}),
-  };
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${allura.variable} ${archivo.variable} ${plexMono.variable}`}
+      className={`${playfair.variable} ${allura.variable} ${archivo.variable} ${plexMono.variable} ${cormorant.variable} ${dmSans.variable} ${greatVibes.variable}`}
     >
-      <body>
-        <SkipLink />
-        <SmoothScroll />
-        <Grain />
-        {/* Above everything, and first in the body: its background photograph is
-            marked critical, so having it early in the document is what lets the
-            browser start that request before the page's own. */}
-        <CinematicLoader />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <script
-          type="application/ld+json"
-          // Serialised from the config above; no user input reaches this.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationJsonLd()) }}
-        />
+      <body style={{ margin: 0 }}>
+        {children}
       </body>
     </html>
   );

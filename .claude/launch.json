@@ -7,6 +7,12 @@
       "runtimeArgs": ["serve", ".", "-l", "3005"],
       "port": 3005,
       "autoPort": true
+    },
+    {
+      "name": "chawla-studio-nextjs",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "-p", "3006"],
+      "port": 3006
     }
   ]
 }
